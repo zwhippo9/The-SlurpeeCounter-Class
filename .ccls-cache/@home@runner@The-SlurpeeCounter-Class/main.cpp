@@ -1,29 +1,39 @@
-#ifndef SLURPEECOUNTER_H
-#define SLURPEECOUNTER_H
+#include "SlurpeeCounter.h"
+#include <iostream>
+using namespace std;
 
-class SlurpeeCounter {
-private:
-  int counter;
+int main() {
+    SlurpeeCounter myCounter;
 
-public:
-  //initialize counter to 0
-  SlurpeeCounter();
+  // 1. The value of a counterType object declared with the default constructor 
+  SlurpeeCounter defaultCounter;
+  cout << "Default counter value: " << defaultCounter.getCounter() << endl; 
 
-  //set to non negative value
-  void setCounter(int value);
+  // 2.The value of a counterType object declared with a user-supplied parameter.
+  SlurpeeCounter userCounter;
+  userCounter.setCounter(5);
+  cout << "User-defined counter value: " << userCounter.getCounter() << endl; // Should be 5
 
-  //retrieve value
-  void getCounter() const;
+  // 3. Increment counter
+  userCounter.increment();
+  cout << "After increment: " << userCounter.getCounter() << endl; 
 
-  //increment counter by 1
-  void incrementCounter();
+  // 4. Decrement counter
+  userCounter.setCounter(5); 
+  userCounter.decrement(); 
+  cout << "After decrement: " << userCounter.getCounter() << endl;
 
-  //decrement counter by 1
-  void decrementCounter();
+  // 5. Reset the counter
+  userCounter.reset();
+  cout << "After reset: " << userCounter.getCounter() << endl; 
 
-  //reset counter to 0
-  void resetCounter();
+  // 6. Attempt to decrement after the reset
+  userCounter.decrement();
+  cout << "After attempting to decrement below zero: " << userCounter.getCounter() << endl; 
 
-};
+  // 7. Set the counter to a value of 10
+  userCounter.setCounter(10);
+  cout << "After setting counter to 10: " << userCounter.getCounter() << endl; 
 
-#endif
+return 0;
+}
