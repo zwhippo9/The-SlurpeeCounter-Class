@@ -1,3 +1,5 @@
+//This program demonstrates how a counter class, in this case, a SlurpeeCounter, can be used to act as counter which can be incremented, decremented, and reset.
+
 #include "SlurpeeCounter.h"
 #include <iostream>
 using namespace std;
